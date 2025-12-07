@@ -39,16 +39,18 @@
 
 
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Index from "./pages/Index"
+import Index from "./pages/Indexo";
+// import About from "./pages/About";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Index />} />
+        {/* <Route path='/about' element={<About />} /> */}
       </Routes>
     </Router>
   )

@@ -1,37 +1,11 @@
-// function Sales() {
-
-//   return (
-//     <>
-//       <div className="container">
-//         <h1>Sales Page</h1>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Sales;
-
-// function Product() {
-
-//   return (
-//     <>
-//       <div className="container">
-//         <h1>Products Page</h1>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Product;
-
 import { useState, useEffect } from "react"
 
-function Sales() {
-  const [sales, setPosts] = useState([]);
+function Purchases() {
+  const [purchases, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/sales")
+    fetch("http://127.0.0.1:5000/api/purchases")
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -46,7 +20,7 @@ function Sales() {
 
   return (
     <div className="container mt-5">
-      <h2>Sales</h2>
+      <h2>Purchases</h2>
       <table className="table">
         <thead>
           <tr>
@@ -54,15 +28,17 @@ function Sales() {
             <th>Name</th>
             <th>Buying Price</th>
             <th>Selling Price</th>
+            <th>Selling Price</th>
           </tr>
         </thead>
         <tbody>
-          {sales.map((prod) => (
+          {purchases.map((prod) => (
             <tr>
               <th scope="row">{prod.id}</th>
-              <th>{prod.sale_id}</th>
+              <th>{prod.product_id}</th>
+              <th>{prod.quantity}</th>
               <th>{prod.created_at}</th>
-              <th>{prod.selling_price}</th>
+              <th>{prod.updated_at}</th>
             </tr>
           ))}
         </tbody>
@@ -71,4 +47,4 @@ function Sales() {
   )
 };
 
-export default Sales;
+export default Purchases;

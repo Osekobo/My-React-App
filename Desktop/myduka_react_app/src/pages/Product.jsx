@@ -1,37 +1,11 @@
-// function Sales() {
-
-//   return (
-//     <>
-//       <div className="container">
-//         <h1>Sales Page</h1>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Sales;
-
-// function Product() {
-
-//   return (
-//     <>
-//       <div className="container">
-//         <h1>Products Page</h1>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Product;
-
 import { useState, useEffect } from "react"
 
-function Sales() {
-  const [sales, setPosts] = useState([]);
+function Products() {
+  const [products, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/sales")
+    fetch("http://127.0.0.1:5000/api/products")
       .then(response => response.json())
       .then(data => {
         console.log(data);
@@ -46,7 +20,7 @@ function Sales() {
 
   return (
     <div className="container mt-5">
-      <h2>Sales</h2>
+      <h2>Products</h2>
       <table className="table">
         <thead>
           <tr>
@@ -57,11 +31,11 @@ function Sales() {
           </tr>
         </thead>
         <tbody>
-          {sales.map((prod) => (
+          {products.map((prod) => (
             <tr>
               <th scope="row">{prod.id}</th>
-              <th>{prod.sale_id}</th>
-              <th>{prod.created_at}</th>
+              <th>{prod.name}</th>
+              <th>{prod.buying_price}</th>
               <th>{prod.selling_price}</th>
             </tr>
           ))}
@@ -71,4 +45,4 @@ function Sales() {
   )
 };
 
-export default Sales;
+export default Products;
