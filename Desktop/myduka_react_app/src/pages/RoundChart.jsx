@@ -2,19 +2,9 @@ import { useState, useEffect } from "react"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-function Dashboard() {
+function Chart() {
   const [dashboard, setPosts] = useState({ data: [], labels: [] });
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -54,7 +44,7 @@ function Dashboard() {
       title: { display: true, text: "Remaining Stock Per Product" }
     }
   };
-  
+
   return (
     <>
       <Navbar />
@@ -67,4 +57,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Chart;
