@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -20,15 +23,18 @@ function Login() {
 
       const data = await response.json();
       console.log("Full response:", data);
-      localStorage.setItem("token", data.token)
 
       if (response.ok) {
-        console.log("JWT Token:", data.token);
+        localStorage.setItem("token", data.token);
+        console.log("JWT Token:", data.token)
+        navigate("/");
       } else {
         console.error("Login failed:", data.error);
+        alert(data.error || "Login failed");
       }
     } catch (error) {
       console.error("Error:", error);
+      alert("An error occured. Please try again.");
     }
   };
 

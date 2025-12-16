@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Bar } from "react-chartjs-2";
+// import SalesTrendChart from "./SalesTrend";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -17,6 +18,21 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 function Dashboard() {
   const [dashboard, setPosts] = useState({ data: [], labels: [] });
   const [loading, setLoading] = useState(true);
+
+  // const [salesTrend, setSalesTrend] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:5000/api/sales/trend", {
+  //     headers: {
+  //       "Authorization": "Bearer " + localStorage.getItem("token")
+  //     }
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => setSalesTrend(data))
+  //     .catch(err => console.error(err));
+  // }, []);
+
+
   useEffect(() => {
     fetch("http://127.0.0.1:5000/api/dashboard", {
       headers: {
@@ -32,6 +48,7 @@ function Dashboard() {
       .catch(error => console.error('Error fetching dashboard:', error));
   }, []
   );
+
   if (loading) {
     return <div>Loading dashboard...</div>;
   }
@@ -54,7 +71,7 @@ function Dashboard() {
       title: { display: true, text: "Remaining Stock Per Product" }
     }
   };
-  
+
   return (
     <>
       <Navbar />
@@ -62,6 +79,9 @@ function Dashboard() {
       <div style={{ width: "80%", margin: "0 auto" }}>
         <Bar data={chartData} options={chartOptions} />
       </div>
+      {/* <div className="container mt-4">
+        <SalesTrendChart data={salesTrend} />
+      </div> */}
       <Footer />
     </>
   );
