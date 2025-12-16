@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Index from "./pages/Index";
@@ -16,14 +16,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<ProtectedRoute><Index /></ProtectedRoute>} />
-        <Route path='/about' element={<ProtectedRoute><About /></ProtectedRoute>} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/purchases" element={<Purchases />} />
-        <Route path="/sales" element={<Sales />} />
-        <Route path="/signup" element={<Register />} />
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+        <Route path='/home' element={<ProtectedRoute><Index /></ProtectedRoute>} />
+        <Route path='/about' element={<ProtectedRoute><About /></ProtectedRoute>} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
+        <Route path="/purchases" element={<ProtectedRoute><Purchases /></ProtectedRoute>} />
+        <Route path="/sales" element={<ProtectedRoute><Sales /></ProtectedRoute>} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )

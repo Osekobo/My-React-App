@@ -27,7 +27,7 @@ function Login() {
       if (response.ok) {
         localStorage.setItem("token", data.token);
         console.log("JWT Token:", data.token)
-        navigate("/");
+        navigate("/home");
       } else {
         console.error("Login failed:", data.error);
         alert(data.error || "Login failed");

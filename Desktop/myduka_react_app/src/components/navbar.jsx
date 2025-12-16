@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Navbar() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">CarDuka</Link>
+          <Link className="navbar-brand" to="/home">CarDuka</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -19,24 +25,24 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">Home</Link>
+                <Link className="nav-link active" to="/home">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="/Dashboard">Dashboard</Link>
+                <Link className="nav-link active" to="/dashboard">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="/Products">Products</Link>
+                <Link className="nav-link active" to="/products">Products</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="/Purchases">Purchases</Link>
+                <Link className="nav-link active" to="/purchases">Purchases</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" to="/Sales">Sales</Link>
+                <Link className="nav-link active" to="/sales">Sales</Link>
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link active" to="/Login">Login</Link>
+                <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
               </li>
             </ul>
           </div>
