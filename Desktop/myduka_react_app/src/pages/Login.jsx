@@ -1,11 +1,11 @@
 import SignUpForm from "../components/SignUpForm";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import Navbar2 from "../components/Navbar2";
 
 function Login() {
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <SignUpForm />
       <Footer />
     </>

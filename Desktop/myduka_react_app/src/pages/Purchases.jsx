@@ -110,7 +110,7 @@ function Purchases() {
   return (
     <div>
       <Navbar />
-      <div className="container mt-5 text-center">
+      <div className="container text-center main-content">
         <h2>Purchases</h2>
         {/* Button trigger modal  */}
         <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -75,6 +75,7 @@ function Dashboard() {
   return (
     <>
       <Navbar />
+      <div className="container main-content">
       <h1 style={{ textAlign: "center", marginTop: "20px" }}>Dashboard</h1>
       <div style={{ width: "80%", margin: "0 auto" }}>
         <Bar data={chartData} options={chartOptions} />
@@ -82,6 +83,7 @@ function Dashboard() {
       {/* <div className="container mt-4">
         <SalesTrendChart data={salesTrend} />
       </div> */}
+      </div>
       <Footer />
     </>
   );

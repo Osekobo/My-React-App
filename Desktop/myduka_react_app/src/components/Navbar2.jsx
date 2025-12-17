@@ -1,10 +1,10 @@
 // import { Link, useNavigate } from "react-router-dom";
-// function Navbar() {
+// function Navbar2() {
 //   const navigate = useNavigate();
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     navigate("/login");
-//   };
+//   // const handleLogout = () => {
+//   //   localStorage.removeItem("token");
+//   //   navigate("/login");
+//   // };
 
 //   return (
 //     <>
@@ -42,7 +42,7 @@
 //             </ul>
 //             <ul className="navbar-nav ms-auto">
 //               <li className="nav-item">
-//                 <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
+//                 <button className="btn btn-outline-danger" onClick={()=>navigate("/signup")}>Register</button>
 //               </li>
 //             </ul>
 //           </div>
@@ -51,80 +51,66 @@
 //     </>
 //   )
 // }
-// export default Navbar;
+// export default Navbar2;
 
-import { useNavigate, Link, useLocation } from "react-router-dom";
+
+
+import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import feather from "feather-icons";
+import "./style.css"; // your CSS for vertical navbar
 
-function Navbar() {
+function Navbar2() {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
 
   // Initialize Feather icons
   useEffect(() => {
     feather.replace();
   }, []);
 
-  const isActive = (path) => location.pathname === path;
-
   return (
     <nav className="navbar">
       <ul className="navbar__menu">
         <li className="navbar__item">
-          <Link
-            to="/home"
-            className={`navbar__link ${isActive("/home") ? "active" : ""}`}
-          >
+          <Link to="/home" className="navbar__link">
             <i data-feather="home"></i>
             <span>Home</span>
           </Link>
         </li>
         <li className="navbar__item">
-          <Link
-            to="/dashboard"
-            className={`navbar__link ${isActive("/dashboard") ? "active" : ""}`}
-          >
+          <Link to="/dashboard" className="navbar__link">
             <i data-feather="bar-chart-2"></i>
             <span>Dashboard</span>
           </Link>
         </li>
         <li className="navbar__item">
-          <Link
-            to="/products"
-            className={`navbar__link ${isActive("/products") ? "active" : ""}`}
-          >
+          <Link to="/products" className="navbar__link">
             <i data-feather="box"></i>
             <span>Products</span>
           </Link>
         </li>
         <li className="navbar__item">
-          <Link
-            to="/purchases"
-            className={`navbar__link ${isActive("/purchases") ? "active" : ""}`}
-          >
+          <Link to="/purchases" className="navbar__link">
             <i data-feather="shopping-cart"></i>
             <span>Purchases</span>
           </Link>
         </li>
         <li className="navbar__item">
-          <Link
-            to="/sales"
-            className={`navbar__link ${isActive("/sales") ? "active" : ""}`}
-          >
+          <Link to="/sales" className="navbar__link">
             <i data-feather="dollar-sign"></i>
             <span>Sales</span>
           </Link>
         </li>
+
+        {/* Right side button as nav item */}
         <li className="navbar__item">
-          <button className="navbar__link" onClick={handleLogout}>
-            <i data-feather="log-out"></i>
-            <span>Logout</span>
+          <button
+            className="navbar__link"
+            onClick={() => navigate("/signup")}
+            style={{ border: "none", background: "none", padding: 0 }}
+          >
+            <i data-feather="user-plus"></i>
+            <span>Register</span>
           </button>
         </li>
       </ul>
@@ -132,4 +118,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar2;

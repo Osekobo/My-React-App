@@ -136,7 +136,7 @@ function Sales() {
     <div>
       <Navbar />
       <h2 className="text-center">Sales</h2>
-      <div className="container my-5 text-center">
+      <div className="container my-5 text-center main-content">
         {/* Button trigger modal  */}
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Make Sale
