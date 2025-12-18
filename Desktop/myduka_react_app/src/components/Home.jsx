@@ -1,23 +1,22 @@
 // import skills from '../images/skills.png';
 import image1 from '../images/image1.png';
-import "./styles.css";
 import "./box.css";
+const cars = Array.from({ length: 10 });
 
 function Home() {
 
   return (
     <>
-      <div className="container main-content bg-secondary">
- 
+      {/* Hero section */}
+      <div className="container main-content bg-light">
         <div className="row g-4">
-          {/* Left long vertical card */}
           <div className="col-md-6 d-flex">
-            <div className="card flex-fill">
+            <div className="flex-fill">
               <div className="row g-0 h-100">
                 <div className="col-md-8">
                   <div className="card-body d-flex flex-column justify-content-between h-100">
                     <div>
-                      <h5 className="card-title">Card 1 & 3</h5>
+                      <h5 className="card-title">Card 1</h5>
                       <p className="card-text">
                         This is a taller card with supporting text below as a natural lead-in to additional content.
                         Combines the content of Card 1 and Card 3 into a single vertical card.
@@ -71,581 +70,180 @@ function Home() {
         </div>
       </div>
 
+      {/* car search */}
+      <div className="container main-content">
+        <div className="mb-3" style={{ width: "540px;" }}>
+          <div className="row g-0">
+            <div className="col-md-8">
+              <div className="card-body">
+                <form>
+                  {/* Make & Model */}
+                  <h5 className="text-center mb-3">Find Your Car</h5>
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <label className="form-label">Make</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="e.g. Toyota"
+                      />
+                    </div>
+                    <div className="col-md-6">
+                      <label className="form-label">Model</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="e.g. Corolla"
+                      />
+                    </div>
+                  </div>
 
-      <div class="container-fluid main-content bg-danger">
-        <p class="subtitle text-center">Scroll horizontally through cars</p>
-        <h1 class="text-center">Our Car Collection</h1>
-        <div class="scrolling-wrapper d-flex flex-row flex-nowrap mt-4 pb-4 pt-2">
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            {/* style="fl{{x: 0 0' 250px;}} '*/}
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
+                  {/* Year */}
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <label className="form-label">Year From</label>
+                      <input type="number" className="form-control" placeholder="2015" />
+                    </div>
+                    <div className="col-md-6">
+                      <label className="form-label">Year To</label>
+                      <input type="number" className="form-control" placeholder="2024" />
                     </div>
                   </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
 
+                  {/* Price */}
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <label className="form-label">Min Price</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        placeholder="KES 500,000"
+                      />
+                    </div>
+                    <div className="col-md-6">
+                      <label className="form-label">Max Price</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        placeholder="KES 5,000,000"
+                      />
+                    </div>
+                  </div>
 
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
+                  {/* Condition & Fuel */}
+                  <div className="row mb-3">
+                    <div className="col-md-6">
+                      <label className="form-label">Condition</label>
+                      <select className="form-select">
+                        <option value="">Select</option>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                      </select>
+                    </div>
+                    <div className="col-md-6">
+                      <label className="form-label">Fuel Type</label>
+                      <select className="form-select">
+                        <option value="">Select</option>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                      </select>
                     </div>
                   </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
 
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
+                  {/* Location */}
+                  <div className="mb-4">
+                    <label className="form-label">Location</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="e.g. Nairobi"
+                    />
                   </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
 
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
+                  {/* Search Button */}
+                  <button type="submit" className="btn btn-primary w-100">
+                    Search Cars
                   </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
+                </form>
               </div>
-            </div>
-          </div>
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
 
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
             </div>
-          </div>
-
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
+            <div className="col-md-4">
+              <div className="card-body d-flex justify-content-center align-items-center">
+                <div className="box-card">
+                  <div className="face front"><img src={image1} alt="" /></div>
+                  <div className="face back"><img src="image1.png" alt="" /></div>
+                  <div className="face right"><img src="image2.png" alt="" /></div>
+                  <div className="face left"><img src={image1} alt="" /></div>
+                  <div className="face top"><img src="image1.png" alt="" /></div>
+                  <div className="face bottom"><img src="image2.png" alt="" /></div>
                 </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="card card-block card-1 text-white me-3" style={{ flex: '0 0 250px;' }}>
-            <div class="card">
-              <img src="image.png" class="card-img-top" alt="Car" />
-              <div class="card-body pt-0 px-0">
-                <div class="d-flex justify-content-between px-3">
-                  <small class="text-muted">STARTING AT</small>
-                  <h6>&dollar;22,495*</h6>
-                </div>
-                <hr class="mx-3" />
-                <div class="d-flex justify-content-between px-3 pb-3">
-                  <div>
-                    <span class="text-muted">Fuel Efficiency</span><br />
-                    <small class="text-muted">L/100KM*</small>
-                  </div>
-                  <div class="text-end">
-                    <h5 class="mb-0">8.5/7.1</h5>
-                    <small class="text-muted">(city/Hwy)</small>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-between p-3 mid">
-                  <div>
-                    <small class="text-muted">ENGINE</small>
-                    <div class="d-flex">
-                      <img src="image2.png" width="35" height="25" alt="" />
-                      <div class="ms-1">
-                        <small class="ghj">1.4L MultiAir</small><br />
-                        <small class="ghj">16V I-4 Turbo</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <small class="text-muted">HORSEPOWER</small>
-                    <div class="d-flex align-items-center">
-                      <img src="image1.png" alt="" />
-                      <h6 class="ms-1">135 hp*</h6>
-                    </div>
-                  </div>
-                </div>
-                <small class="key d-flex justify-content-center py-2">
-                  Standard Key Features
-                </small>
-                <div class="px-3">
-                  <button class="btn btn-danger w-100">
-                    <small>BUILD & PRICE</small>
-                  </button>
-                </div>
-                <small class="d-flex justify-content-center text-muted mt-2">
-                  *Legal Disclaimer
-                </small>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div className="container main-content bg-primary">
-        <div class="card mb-3" style={{ width: "540px;" }}>
-          <div class="row g-0">
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              {/* <img src={image1} class="img-fluid rounded-start" alt="..." /> */}
-              <div className="box-card">
-                <div className="face front"><img src={image1} alt="" /></div>
-                <div className="face back"><img src="image1.png" alt="" /></div>
-                <div className="face right"><img src="image2.png" alt="" /></div>
-                <div className="face left"><img src={image1} alt="" /></div>
-                <div className="face top"><img src="image1.png" alt="" /></div>
-                <div className="face bottom"><img src="image2.png" alt="" /></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container main-content bg-danger">
+
+      <div className="container main-content bg-light">
+        <p className="subtitle text-center">
+          Scroll horizontally through cars
+        </p>
+        <h1 className="text-center">Our Car Collection</h1>
+
+        <div className="d-flex flex-nowrap overflow-auto mt-4 pb-4 gap-3">
+          {cars.map((_, index) => (
+            <div
+              key={index}
+              className="card"
+              style={{ width: "250px", flex: "0 0 auto" }}
+            >
+              <img src={image1} className="card-img-top" alt="Car" />
+
+              <div className="card-body pt-2 px-3">
+                <h5 className="card-title">Toyota Corolla</h5>
+                <p className="card-text mb-1">
+                  <strong>Year:</strong> 2022
+                </p>
+                <p className="card-text mb-1">
+                  <strong>Price:</strong> $22,495
+                </p>
+                <p className="card-text mb-1">
+                  <strong>Mileage:</strong> 15,000 km
+                </p>
+                <p className="card-text mb-3">
+                  <strong>Location:</strong> Nairobi, Kenya
+                </p>
+
+                <button className="btn btn-danger w-100">
+                  View Details
+                </button>
+              </div>
+
+
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+      <div className="container main-content">
         <div className="row row-cols-1 row-cols-md-2 g-4">
           <div className="col">
-            <div className="card mb-3" style={{ width: "540px" }}>
+            <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
                   <img src={image1} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body d-flex flex-column justify-content-between h-100">
-                    <h5 className="card-title">Card Title</h5>
+                    <h5 className="card-title">Browse By Make</h5>
                     <p className="card-text">
-                      This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      Car makes refer to the brand or manufacturer of a vehicle, such as Toyota, Ford, BMW, or Honda. Each make represents a company’s reputation, design style, reliability, and technological innovations, helping buyers identify the kind of vehicle they prefer.
                     </p>
+                    <button className="btn btn-primary mt-3 align-self-start">
+                      Browse
+                    </button>
                   </div>
                 </div>
               </div>
@@ -653,17 +251,20 @@ function Home() {
           </div>
 
           <div className="col">
-            <div className="card mb-3" style={{ width: "540px" }}>
+            <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
                   <img src={image1} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body d-flex flex-column justify-content-between h-100">
-                    <h5 className="card-title">Card Title</h5>
+                    <h5 className="card-title">Browse Per Body Type</h5>
                     <p className="card-text">
-                      This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      Car body types describe the overall shape and design of a vehicle. Common types include sedan, SUV, hatchback, coupe, convertible, and wagon, each offering different space, style, and functionality for various driving needs.
                     </p>
+                    <button className="btn btn-primary mt-3 align-self-start">
+                      Browse
+                    </button>
                   </div>
                 </div>
               </div>
@@ -671,14 +272,17 @@ function Home() {
           </div>
 
           <div className="col">
-            <div className="card mb-3" style={{ width: "540px" }}>
+            <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-8">
                   <div className="card-body d-flex flex-column justify-content-between h-100">
-                    <h5 className="card-title">Card Title</h5>
+                    <h5 className="card-title">Budget Cars</h5>
                     <p className="card-text">
-                      This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      Budget cars are affordable vehicles designed to meet the needs of cost-conscious buyers. They typically offer basic features, fuel efficiency, and low maintenance costs, making them ideal for daily commuting and first-time car owners without compromising on reliability.
                     </p>
+                    <button className="btn btn-primary mt-3 align-self-start">
+                      Browse
+                    </button>
                   </div>
                 </div>
                 <div className="col-md-4">
@@ -689,14 +293,17 @@ function Home() {
           </div>
 
           <div className="col">
-            <div className="card mb-3" style={{ width: "540px" }}>
+            <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-8">
                   <div className="card-body d-flex flex-column justify-content-between h-100">
-                    <h5 className="card-title">Card Title</h5>
+                    <h5 className="card-title">Luxury Cars</h5>
                     <p className="card-text">
-                      This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                      Luxury cars are high-end vehicles that combine superior performance, advanced technology, and elegant design. They offer premium comfort, safety features, and cutting-edge amenities, catering to drivers who value style, status, and an exceptional driving experience.
                     </p>
+                    <button className="btn btn-primary mt-3 align-self-start">
+                      Browse
+                    </button>
                   </div>
                 </div>
                 <div className="col-md-4">
@@ -710,6 +317,30 @@ function Home() {
       </div>
 
 
+      <div className='container main-content bg-light'>
+        <h1>Questions</h1>
+      </div>
+
+
+      <div className='container main-content'>
+        <h1>Why us</h1>
+        <div className="row">
+          <div className="col-12">
+            <ul className="horizontal-slide d-flex flex-row flex-nowrap list-unstyled overflow-auto p-0">
+              {[...Array(7)].map((_, i) => (
+                <li key={i} className="me-3" style={{ flex: "0 0 auto" }}>
+                  <img
+                    src={image1}
+                    alt=""
+                    className="thumbnail img-fluid"
+                    style={{ width: "200px", height: "auto", borderRadius: "8px" }}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
 
       {/* <div class="card mb-3" style={{ width: "540px;" }}>
         <div class="row g-0">
@@ -728,25 +359,18 @@ function Home() {
 
         </div>
       </div> */}
-      <div className='container main-content bg-primary'>
+
+      <div className='container main-content bg-light'>
         <div class="py-8 bg-light ">
           <div class="container">
-            {/* <!-- row --> */}
             <div class="row">
               <div class="offset-xl-3 col-xl-6 col-md-12">
-                {/* <!-- heading --> */}
                 <div class="text-center mb-8">
-                  <h2 class="display-4 fw-bold mb-3">Developer<span class="mx-2"><svg xmlns="http://www.w3.org/2000/svg"
-                    width="30" height="30" fill="currentColor" class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                  </svg></span>Geeks
+                  <h2 class="display-4 fw-bold mb-3">Developer Geeks
                   </h2>
-                  {/* <!-- para --> */}
                   <p class="fs-4">Our average call quality rating is 4.4 out of 5. That leads to happy
                     tweets like these:</p>
                 </div>
-
               </div>
             </div>
 
@@ -812,7 +436,7 @@ function Home() {
 
 
 
-      <div className='container main-content bg-danger'>
+      <div className='container main-content'>
         <h1>Our Latest News And Blogs</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col">
@@ -821,9 +445,6 @@ function Home() {
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
               </div>
             </div>
           </div>
@@ -834,9 +455,6 @@ function Home() {
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
               </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
             </div>
           </div>
           <div class="col">
@@ -846,42 +464,14 @@ function Home() {
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
               </div>
-              <div class="card-footer">
-                <small class="text-body-secondary">Last updated 3 mins ago</small>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div className='container main-content bg-primary'>
-        <h1>Follow us</h1>
-        <div className="row">
-          <div className="col-12">
-            <ul className="horizontal-slide d-flex flex-row flex-nowrap list-unstyled overflow-auto p-0">
-              {[...Array(7)].map((_, i) => (
-                <li key={i} className="me-3" style={{ flex: "0 0 auto" }}>
-                  <img
-                    src={image1}
-                    alt=""
-                    className="thumbnail img-fluid"
-                    style={{ width: "200px", height: "auto", borderRadius: "8px" }}
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-      <div className='container main-content bg-danger'>
-        <h1>Questions</h1>
-      </div>
-
-      <div className="container main-content text-center py-5 bg-primary">
-        <h1>Subscribe to Our Newsletter</h1>
+      <div className="container main-content text-center py-5 bg-light">
+        <h1>Call to action</h1>
         <p className="lead text-success mb-4">Get Updates on Our Latest Collection</p>
 
         <form className="d-flex justify-content-center gap-2" onSubmit={(e) => e.preventDefault()}>

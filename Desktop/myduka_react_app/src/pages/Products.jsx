@@ -7,6 +7,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editProduct, setEditProduct] = useState(null);
+  const [search, setSearch] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   // store values
   const [formData, setFormData] = useState({
@@ -22,12 +23,17 @@ function Products() {
     });
   };
 
+  const filteredProducts = products.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const res = await fetch("http://127.0.0.1:5000/api/products", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("token") },
         body: JSON.stringify(formData)
       });
       const newProduct = await res.json();
@@ -187,9 +193,18 @@ function Products() {
           </div>
         </div>
 
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="form-control my-4"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+
         <DataTable
           columns={columns}
-          data={products}
+          data={filteredProducts}
           pagination
           highlightOnHover
           striped

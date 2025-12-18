@@ -1,64 +1,7 @@
-// import { Link, useNavigate } from "react-router-dom";
-// function Navbar2() {
-//   const navigate = useNavigate();
-//   // const handleLogout = () => {
-//   //   localStorage.removeItem("token");
-//   //   navigate("/login");
-//   // };
-
-//   return (
-//     <>
-//       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-//         <div className="container-fluid">
-//           <Link className="navbar-brand" to="/home">CarDuka</Link>
-//           <button
-//             className="navbar-toggler"
-//             type="button"
-//             data-bs-toggle="collapse"
-//             data-bs-target="#navbarNav"
-//             aria-controls="navbarNav"
-//             aria-expanded="false"
-//             aria-label="Toggle navigation"
-//           >
-//             <span className="navbar-toggler-icon"></span>
-//           </button>
-//           <div className="collapse navbar-collapse" id="navbarNav">
-//             <ul className="navbar-nav mx-auto">
-//               <li className="nav-item">
-//                 <Link className="nav-link active" to="/home">Home</Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link active" to="/dashboard">Dashboard</Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link active" to="/products">Products</Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link active" to="/purchases">Purchases</Link>
-//               </li>
-//               <li className="nav-item">
-//                 <Link className="nav-link active" to="/sales">Sales</Link>
-//               </li>
-//             </ul>
-//             <ul className="navbar-nav ms-auto">
-//               <li className="nav-item">
-//                 <button className="btn btn-outline-danger" onClick={()=>navigate("/signup")}>Register</button>
-//               </li>
-//             </ul>
-//           </div>
-//         </div>
-//       </nav>
-//     </>
-//   )
-// }
-// export default Navbar2;
-
-
-
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import feather from "feather-icons";
-import "./style.css"; // your CSS for vertical navbar
+import "./style.css"; 
 
 function Navbar2() {
   const navigate = useNavigate();

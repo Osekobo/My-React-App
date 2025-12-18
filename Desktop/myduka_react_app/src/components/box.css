@@ -21,6 +21,16 @@ body {
   align-items: center;
   transform-style: preserve-3d;
 } */
+ 
+/* 
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+} */
+/* or whatever your card height is */
+
 
 ul.horizontal-slide {
   margin: 0;

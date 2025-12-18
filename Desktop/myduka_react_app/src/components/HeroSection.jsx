@@ -14,7 +14,7 @@ import skills3 from '../images/skills3.png';
 function HeroSection() {
   return (
     <>
-      <div className='bg-danger container main-content'>
+      <div className='container main-content'>
         <div id="carouselExampleAutoplaying" className="carousel slide container py-5" data-bs-ride="carousel">
           <div className="carousel-inner">
 

@@ -18,12 +18,13 @@ body {
   /* top: 1rem; */
   /* left: 1rem; */
   background: #fff;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   padding: 1rem 0;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
+  /* box-shadow: 0 0 40px rgba(0, 0, 0, 0.03); */
   height: calc(100vh - 0rem);
   width: 80px;
   z-index: 1000;
+  border: 1px solid #000;
 }
 
 .navbar__menu {
@@ -40,7 +41,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 3.5rem;
-  width: 5.5rem;
+  width: 3.5rem;
+  /*here*/
   color: #6a778e;
   background: none;
   border: none;
@@ -53,12 +55,6 @@ body {
 .navbar__link:hover,
 .navbar__link button:hover {
   color: #ffffff;
-}
-
-.navbar__link.active {
-  background: #406ff3;
-  color: #fff;
-  /* border-radius: 90%; */
 }
 
 /* Active tab circle */

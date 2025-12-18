@@ -127,7 +127,15 @@ function Sales() {
           View Items
         </button>
       )
-    }
+    },
+    {
+      name: "Pay",
+      selector: row => (
+        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+          Proceed to Payment
+        </button>
+      )
+    },
   ];
 
   if (loading) { return <div>Loading sales...</div>; }
@@ -266,6 +274,24 @@ function Sales() {
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Print Receipt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Payment Modal */}
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
