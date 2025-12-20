@@ -19,7 +19,6 @@ function HeroSection() {
           <div className="carousel-inner">
 
             <div className="carousel-item active min-vh-75">
-              {/* <img src={imag} className="d-block w-100" alt="..." /> */}
               <div className="mb-3 h-100">
                 <div className="row g-0 h-100">
                   <div className="col-md-12 h-100">
@@ -27,7 +26,6 @@ function HeroSection() {
                       <section className="py-lg-16 py-6 flex-grow-1">
                         <div className="container h-100">
                           <div className="row d-flex align-items-center h-100">
-                            {/* Text Column */}
                             <div className="col-xxl-5 col-xl-6 col-lg-6 col-12 h-100 d-flex flex-column justify-content-center">
                               <div>
                                 <h1 className="display-2 fw-bold mb-3">
@@ -94,13 +92,10 @@ function HeroSection() {
 
             </div>
             <div className="carousel-item">
-              {/* <img src={imag} className="d-block w-100" alt="..." /> */}
               <div className="mb-3 h-100" >
                 <div className="">
                   <div className="container">
-                    {/* Hero Section */}
                     <div className="row align-items-center g-0">
-                      {/* Text Column */}
                       <div className="col-xl-5 col-lg-6 col-md-12">
                         <div className="py-5 py-lg-0">
                           <h1 className="text-black display-4 fw-bold">
@@ -112,9 +107,6 @@ function HeroSection() {
                           <a href="#browse" className="btn btn-outline-secondary me-2">
                             Browse Cars
                           </a>
-                          {/* <a href="#contact" className="btn btn-outline-secondary">
-                            Sell Your Car
-                          </a> */}
                         </div>
                       </div>
 
@@ -168,11 +160,7 @@ function HeroSection() {
                     <div className="col-lg-6 d-flex justify-content-center">
                       <div className="position-relative w-100">
                         <img src={image2} alt="Car Main" className="img-fluid w-100" />
-                        {/* <img src={skills1} alt="Frame 1" className="position-absolute top-0 ms-lg-n10 ms-n19" /> */}
                         <img src={skills1} alt="Frame 2" className="position-absolute bottom-0 start-0 ms-lg-n14 ms-n6 mb-n7" />
-                        {/* <img src={skills1} alt="Target" className="position-absolute bottom-0 mb-8 ms-n10 ms-lg-n1" /> */}
-                        {/* <img src={image} alt="Sound" className="position-absolute top-0 start-0 mt-18 ms-lg-n19 ms-n8" style={{ height: "150px" }} />
-                          <img src={image} alt="Trophy" className="position-absolute top-0 start-0 ms-lg-n14 ms-n5" style={{ height: "100px" }} /> */}
                       </div>
                     </div>
                   </div>

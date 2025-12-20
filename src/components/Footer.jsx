@@ -61,4 +61,3 @@ function Footer() {
 }
 
 export default Footer;
-  // style={{ backgroundColor: "rgba(255, 255, 0, 0.1)", borderRadius: "10px" }}
