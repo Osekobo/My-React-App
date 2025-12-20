@@ -154,28 +154,7 @@ function Purchases() {
                       required
                     />
                   </div>
-                  {/* <div className="mb-3 text-start">
-                    <label>Created At</label>
-                    <input
-                      type="date"
-                      name="created_at"
-                      className="form-control"
-                      value={formData.created_at}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="mb-3 text-start">
-                    <label>Updated On</label>
-                    <input
-                      type="date"
-                      name="updated_at"
-                      className="form-control"
-                      value={formData.updated_at}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div> */}
+          
 
                   <button type="submit" className="btn btn-success w-100">
                     Save Purchase
