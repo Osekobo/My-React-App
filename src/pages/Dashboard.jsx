@@ -19,20 +19,6 @@ function Dashboard() {
   const [dashboard, setPosts] = useState({ data: [], labels: [] });
   const [loading, setLoading] = useState(true);
 
-  // const [salesTrend, setSalesTrend] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:5000/api/sales/trend", {
-  //     headers: {
-  //       "Authorization": "Bearer " + localStorage.getItem("token")
-  //     }
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => setSalesTrend(data))
-  //     .catch(err => console.error(err));
-  // }, []);
-
-
   useEffect(() => {
     fetch("http://127.0.0.1:5000/api/dashboard", {
       headers: {
