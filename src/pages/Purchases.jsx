@@ -10,8 +10,6 @@ function Purchases() {
   const [formData, setFormData] = useState({
     product_id: "",
     quantity: "",
-    // created_at: "",
-    // updated_at: ""
   });
   const handleChange = (e) => {
     setFormData({
@@ -56,8 +54,6 @@ function Purchases() {
       setFormData({
         product_id: "",
         quantity: ""
-        // created_at: "",
-        // updated_at: ""
       });
 
     }
@@ -142,7 +138,6 @@ function Purchases() {
                     </select>
                   </div>
 
-
                   <div className="mb-3 text-start">
                     <label>Quantity</label>
                     <input
@@ -154,7 +149,6 @@ function Purchases() {
                       required
                     />
                   </div>
-          
 
                   <button type="submit" className="btn btn-success w-100">
                     Save Purchase

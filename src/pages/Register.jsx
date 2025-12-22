@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function Register() {
   const navigate = useNavigate();
@@ -45,20 +47,22 @@ function Register() {
 
   return (
     <>
-      <div className="container">
-        <h1>Register Page</h1>
+      <Navbar />
+      <div className="container py-4">
+        <h1 className="text-center">Register Page</h1>
         <form className="p-3 border rounded shadow-sm w-50 mx-auto" onSubmit={handleSubmit}>
           {error && <p className="text-danger">{error}</p>}
           <input type="text" name="name" className="form-control mb-3" placeholder="Name" value={formData.name} onChange={handleChange} required></input>
           <input type="email" name="email" className="form-control mb-3" placeholder="Enter Email" value={formData.email} onChange={handleChange} required></input>
           <input type="password" name="password" className="form-control mb-3" placeholder="Enter Password" value={formData.password} onChange={handleChange} required></input>
-          <button type="submit" className="btn btn-outline-warning w-100" disabled={loading}>{loading ? "Register..." : "Register"}</button>
+          <button type="submit" className="btn btn-outline-primary w-100" disabled={loading}>{loading ? "Register..." : "Register"}</button>
           <p className="mt-3 text-black text-center">
             Already have an account?{""}
-            <Link to="/login" className="text-warning text-decoration-none">Login</Link>
+            <Link to="/login" className="text-primary text-decoration-none">Login</Link>
           </p>
         </form>
       </div>
+      <Footer />
     </>
   )
 }

@@ -39,10 +39,9 @@ function Login() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
-      <h2>Login</h2>
-
-      <form onSubmit={handleLogin}>
+    <div className='container p-4'>
+      <h2 className='text-center'>Login</h2>
+      <form className="p-3 border rounded shadow-sm w-50 mx-auto" onSubmit={handleLogin}>
         <div style={{ marginBottom: "15px" }}>
           <label>Email</label>
           <input
@@ -65,7 +64,7 @@ function Login() {
           />
         </div>
 
-        <button className="btn btn-primary w-100">Login</button>
+        <button className="btn btn-primary w-100 mb-5">Login</button>
       </form>
     </div>
   );
