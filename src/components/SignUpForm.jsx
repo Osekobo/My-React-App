@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ function Login() {
 
   return (
     <div className='container p-4'>
-      <h2 className='text-center'>Login</h2>
+      <h2 className='text-center mt-5'>Login</h2>
       <form className="p-3 border rounded shadow-sm w-50 mx-auto" onSubmit={handleLogin}>
         <div style={{ marginBottom: "15px" }}>
           <label>Email</label>
@@ -63,6 +63,11 @@ function Login() {
             required
           />
         </div>
+
+        <p className="mt-3 text-black text-center">
+          forgot password {""}
+          <Link to="/login" className="text-primary text-decoration-none">Reset</Link>
+        </p>
 
         <button className="btn btn-primary w-100 mb-5">Login</button>
       </form>

@@ -99,7 +99,11 @@ function HeroSection() {
                       <div className="col-xl-5 col-lg-6 col-md-12">
                         <div className="py-5 py-lg-0">
                           <h1 className="text-black display-4 fw-bold">
-                            Drive Your Dream Car Today
+                            Drive Your
+                            <u className="text-warning">
+                              <span className="text-primary"> Dream Car </span>
+                            </u>
+                            Today
                           </h1>
                           <p className="text-black-50 mb-4 lead">
                             Explore the latest luxury and sports cars online. Find your perfect ride with our curated selection.
@@ -116,7 +120,7 @@ function HeroSection() {
                           src={image3}
                           style={{ maxHeight: "600px", objectFit: "cover" }}
                           alt="Luxury car"
-                          className="img-fluid"
+                          className="img-fluid rounded-4"
                         />
                       </div>
                     </div>
@@ -127,7 +131,6 @@ function HeroSection() {
 
             <div className="carousel-item">
               <div className="mb-3 h-100">
-
                 <div className="container">
                   <div className="row align-items-center">
                     {/* Text Column */}
@@ -138,7 +141,11 @@ function HeroSection() {
                           Most trusted car marketplace
                         </h5>
                         <h1 className="display-3 fw-bold mb-3">
-                          Find Your Dream Car and Drive Today
+                          Find Your
+                          <u className="text-warning">
+                            <span className="text-primary"> Dream Car </span>
+                          </u>
+                          and Drive Today
                         </h1>
                         <p className="pe-lg-10 mb-5">
                           Explore hundreds of luxury and sports cars. Buy, sell, or rent vehicles with verified sellers and hassle-free service.
@@ -159,13 +166,12 @@ function HeroSection() {
                     {/* Image Column */}
                     <div className="col-lg-6 d-flex justify-content-center">
                       <div className="position-relative w-100">
-                        <img src={image2} alt="Car Main" className="img-fluid w-100" />
+                        <img src={image2} alt="Car Main" className="img-fluid w-100 rounded-4" />
                         <img src={skills1} alt="Frame 2" className="position-absolute bottom-0 start-0 ms-lg-n14 ms-n6 mb-n7" />
                       </div>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
 

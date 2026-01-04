@@ -15,7 +15,7 @@ body {
 /* Navbar */
 .navbar {
   position: fixed;
-  /* top: 1rem; */
+  top: 47px;
   /* left: 1rem; */
   background: #fff;
   /* border-radius: 5px; */

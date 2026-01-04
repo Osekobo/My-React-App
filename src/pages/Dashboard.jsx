@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Bar } from "react-chartjs-2";
+import Topnav from "../components/Topnav";
 // import SalesTrendChart from "./SalesTrend";
 import {
   Chart as ChartJS,
@@ -60,13 +61,14 @@ function Dashboard() {
 
   return (
     <>
+      <Topnav />
       <Navbar />
       <div className="container main-content">
-      <h1 style={{ textAlign: "center", marginTop: "20px" }}>Dashboard</h1>
-      <div style={{ width: "80%", margin: "0 auto" }}>
-        <Bar data={chartData} options={chartOptions} />
-      </div>
-      {/* <div className="container mt-4">
+        <h1 className="text-center mt-5">Dashboard</h1>
+        <div style={{ width: "80%", margin: "0 auto" }}>
+          <Bar data={chartData} options={chartOptions} />
+        </div>
+        {/* <div className="container mt-4">
         <SalesTrendChart data={salesTrend} />
       </div> */}
       </div>

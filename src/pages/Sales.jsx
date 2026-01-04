@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Receipt from "../components/Receipt";
+import Topnav from "../components/Topnav";
 
 function Sales() {
   const [sales, setSales] = useState([]);
@@ -141,12 +143,13 @@ function Sales() {
   if (loading) { return <div>Loading sales...</div>; }
 
   return (
-    <div>
+    <>
+      <Topnav />
       <Navbar />
-      <h2 className="text-center">Sales</h2>
-      <div className="container my-5 text-center main-content">
+      <div className="container text-center main-content">
+        <h2 className="text-center mt-5">Sales</h2>
         {/* Button trigger modal  */}
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Make Sale
         </button>
 
@@ -288,7 +291,127 @@ function Sales() {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                ...
+                {/* receipt start */}
+                <div className="container my-4">
+                  <div className="card shadow p-4">
+                    <h2 className="text-center mb-4">CAR SALE RECEIPT</h2>
+
+                    {/* Receipt Info */}
+                    <div className="d-flex justify-content-between mb-3">
+                      <div>
+                        <strong>Receipt No:</strong>
+                      </div>
+                      <div>
+                        <strong>Date:</strong>
+                      </div>
+                    </div>
+
+                    <hr />
+
+                    {/* Seller & Buyer */}
+                    <div className="row mb-3">
+                      <div className="col-md-6">
+                        <h5>Seller Information</h5>
+                        <p><strong>Name:</strong></p>
+                        <p><strong>Phone:</strong> </p>
+                        <p><strong>Address:</strong> </p>
+                      </div>
+
+                      <div className="col-md-6">
+                        <h5>Buyer Information</h5>
+                        <p><strong>Name:</strong> </p>
+                        <p><strong>Phone:</strong> </p>
+                        <p><strong>ID No:</strong> </p>
+                      </div>
+                    </div>
+
+                    <hr />
+
+                    {/* Vehicle Details */}
+                    <h5>Vehicle Details</h5>
+                    <table className="table table-bordered mb-3">
+                      <tbody>
+                        <tr>
+                          <td><strong>Make</strong></td>
+                          <td></td>
+                          <td><strong>Model</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Year</strong></td>
+                          <td></td>
+                          <td><strong>Color</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Engine No</strong></td>
+                          <td></td>
+                          <td><strong>Chassis / VIN</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Registration No</strong></td>
+                          <td></td>
+                          <td><strong>Fuel Type</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Mileage</strong></td>
+                          <td colSpan="3"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <hr />
+
+                    {/* Sale Details */}
+                    <h5>Sale Details</h5>
+                    <table className="table table-bordered mb-3">
+                      <tbody>
+                        <tr>
+                          <td><strong>Sale Price</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Payment Method</strong></td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td><strong>Transaction Reference</strong></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <hr />
+
+                    {/* Declaration */}
+                    <p>
+                      <strong>Declaration:</strong><br />
+                      I, the seller, confirm that I am the lawful owner of the vehicle described
+                      above and that it is sold as-is with no outstanding loans or encumbrances.
+                    </p>
+
+                    <hr />
+
+                    {/* Signatures */}
+                    <div className="row mt-4">
+                      <div className="col-md-6 text-center">
+                        <p>__________________________</p>
+                        <p><strong>Seller Signature</strong></p>
+                      </div>
+                      <div className="col-md-6 text-center">
+                        <p>__________________________</p>
+                        <p><strong>Buyer Signature</strong></p>
+                      </div>
+                    </div>
+
+                    <p className="text-center mt-4">
+                      <em>Thank you for your business</em>
+                    </p>
+                  </div>
+                </div>
+                {/* receipt end */}
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save changes</button>
@@ -298,8 +421,9 @@ function Sales() {
         </div>
 
       </div>
+      <Receipt />
       <Footer />
-    </div>
+    </>
   )
 };
 

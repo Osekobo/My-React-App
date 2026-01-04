@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Topnav from "../components/Topnav";
 
 function Register() {
   const navigate = useNavigate();
@@ -47,9 +48,10 @@ function Register() {
 
   return (
     <>
+      <Topnav />
       <Navbar />
       <div className="container py-4">
-        <h1 className="text-center">Register Page</h1>
+        <h1 className="text-center mt-5">Register Page</h1>
         <form className="p-3 border rounded shadow-sm w-50 mx-auto" onSubmit={handleSubmit}>
           {error && <p className="text-danger">{error}</p>}
           <input type="text" name="name" className="form-control mb-3" placeholder="Name" value={formData.name} onChange={handleChange} required></input>

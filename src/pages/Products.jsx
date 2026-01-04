@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import DataTable from "react-data-table-component"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Topnav from "../components/Topnav";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -13,7 +14,11 @@ function Products() {
   const [formData, setFormData] = useState({
     name: "",
     buying_price: "",
-    selling_price: ""
+    selling_price: "",
+    model: "",
+    year: "",
+    condition: "",
+    fuel: ""
   })
 
   const handleChange = (e) => {
@@ -38,7 +43,9 @@ function Products() {
       });
       const newProduct = await res.json();
       setProducts([...products, newProduct]);// add product to product list
-      setFormData({ name: "", buying_price: "", selling_price: "", });
+      setFormData({
+        name: "", buying_price: "", selling_price: "", model: "", year: "", condition: "", fuel: "",
+      });
     } catch (error) {
       console.error("Error", error);
     }
@@ -66,6 +73,26 @@ function Products() {
       sortable: true
     },
     {
+      name: "Model",
+      selector: row => row.model,
+      sortable: true
+    },
+    {
+      name: "Year",
+      selector: row => row.year,
+      sortable: true
+    },
+    {
+      name: "Condition",
+      selector: row => row.condition,
+      sortable: true
+    },
+    {
+      name: "Fuel",
+      selector: row => row.fuel,
+      sortable: true
+    },
+    {
       name: "Edit Product",
       selector: row => (
         <button
@@ -77,7 +104,12 @@ function Products() {
             setEditProduct({
               name: row.name,
               buying_price: row.buying_price,
-              selling_price: row.selling_price
+              selling_price: row.selling_price,
+
+              model: row.model,
+              year: row.year,
+              condition: row.condition,
+              fuel: row.fuel
             });
           }}
         >
@@ -131,12 +163,13 @@ function Products() {
 
 
   return (
-    <div>
+    <>
+      <Topnav />
       <Navbar />
-      <h2 className="text-center">Products</h2>
-      <div className="container my-5 text-center main-content">
+      <div className="container text-center main-content">
+        <h2 className="text-center mt-5">Products</h2>
         {/* Button trigger modal  */}
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" className="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Add Product
         </button>
 
@@ -183,6 +216,52 @@ function Products() {
                       required
                     />
                   </div>
+
+                  <div className="mb-3 text-start">
+                    <label>Model</label>
+                    <input
+                      type="text"
+                      name="model"
+                      className="form-control"
+                      value={formData.model}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 text-start">
+                    <label>Year</label>
+                    <input
+                      type="number"
+                      name="year"
+                      className="form-control"
+                      value={formData.year}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 text-start">
+                    <label>Condition</label>
+                    <input
+                      type="text"
+                      name="condition"
+                      className="form-control"
+                      value={formData.condition}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 text-start">
+                    <label>Fuel</label>
+                    <input
+                      type="text"
+                      name="fuel"
+                      className="form-control"
+                      value={formData.fuel}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
                   <button type="submit" className="btn btn-success w-100">
                     Save Product
                   </button>
@@ -228,6 +307,11 @@ function Products() {
                           <th>Name</th>
                           <th>Buying Price</th>
                           <th>Selling Price</th>
+
+                          <th>Model</th>
+                          <th>Year</th>
+                          <th>Condition</th>
+                          <th>Fuel</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -235,6 +319,11 @@ function Products() {
                           <td>{selectedProduct.name}</td>
                           <td>{selectedProduct.buying_price}</td>
                           <td>{selectedProduct.selling_price}</td>
+
+                          <td>{selectedProduct.model}</td>
+                          <td>{selectedProduct.year}</td>
+                          <td>{selectedProduct.condition}</td>
+                          <td>{selectedProduct.fuel}</td>
                         </tr>
                         <tr>
                           <td>
@@ -267,6 +356,47 @@ function Products() {
                               }
                             />
                           </td>
+
+                          <td>
+                            <input
+                              type="text"
+                              className="form-control"
+                              value={editProduct.model}
+                              onChange={(e) =>
+                                setEditProduct({ ...editProduct, model: e.target.value })
+                              }
+                            />
+                          </td>
+                          <td>
+                            <input
+                              type="number"
+                              className="form-control"
+                              value={editProduct.year}
+                              onChange={(e) =>
+                                setEditProduct({ ...editProduct, year: e.target.value })
+                              }
+                            />
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              className="form-control"
+                              value={editProduct.condition}
+                              onChange={(e) =>
+                                setEditProduct({ ...editProduct, condition: e.target.value })
+                              }
+                            />
+                          </td>
+                          <td>
+                            <input
+                              type="text"
+                              className="form-control"
+                              value={editProduct.fuel}
+                              onChange={(e) =>
+                                setEditProduct({ ...editProduct, fuel: e.target.value })
+                              }
+                            />
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -283,7 +413,7 @@ function Products() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

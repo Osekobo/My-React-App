@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import DataTable from "react-data-table-component"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Topnav from "../components/Topnav";
 
 function Purchases() {
   const [purchases, setPurchases] = useState([]);
@@ -104,12 +105,13 @@ function Purchases() {
   }
 
   return (
-    <div>
+    <>
+      <Topnav />
       <Navbar />
       <div className="container text-center main-content">
-        <h2>Purchases</h2>
+        <h2 className="mt-5">Purchases</h2>
         {/* Button trigger modal  */}
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" className="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Maka Purchase
         </button>
 
@@ -168,7 +170,7 @@ function Purchases() {
         />
       </div>
       <Footer />
-    </div>
+    </>
   )
 };
 
