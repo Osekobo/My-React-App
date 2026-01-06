@@ -65,9 +65,15 @@ function Login() {
         </div>
 
         <p className="mt-3 text-black text-center">
-          forgot password {""}
-          <Link to="/login" className="text-primary text-decoration-none">Reset</Link>
+          Forgot password?{" "}
+          <Link
+            to="/forgot-password"
+            className="fw-bold text-primary text-decoration-none"
+          >
+            Click here
+          </Link>
         </p>
+
 
         <button className="btn btn-primary w-100 mb-5">Login</button>
       </form>

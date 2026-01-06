@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DataTable from "react-data-table-component";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -12,11 +12,41 @@ function Sales() {
   const [saleItems, setSaleItems] = useState([]);
   const [saleNumber, setSaleNumber] = useState(1);
   const [loading, setLoading] = useState(true);
+  const receiptRef = useRef();
   const [formData, setFormData] = useState({
     product_id: "",
     quantity: ""
     // created_at: ""
   });
+
+
+  const handlePrint = () => {
+    const printContents = receiptRef.current.innerHTML;
+    const printWindow = window.open("", "", "width=800,height=600");
+
+    printWindow.document.write(`
+    <html>
+      <head>
+        <title>Sale Receipt</title>
+        <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        />
+      </head>
+      <body>
+        <div class="container mt-4">
+          ${printContents}
+        </div>
+      </body>
+    </html>
+  `);
+
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  };
+
+
 
   const handleChange = (e) => {
     setFormData({// (object distructuring)
@@ -249,9 +279,12 @@ function Sales() {
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Receipt For Sale  {selectedSale?.sale_id}</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" ref={receiptRef}>
                 {selectedSale && selectedSale.items?.length > 0 ? (
                   <>
+                    <h5 className="text-center mb-3">
+                      Receipt #{selectedSale.sale_id}
+                    </h5>
                     <table class="table table-hover">
                       <thead>
                         <tr>
@@ -270,13 +303,16 @@ function Sales() {
                         ))}
                       </tbody>
                     </table>
+                    <p className="text-end mt-3">
+                      <strong>Date:</strong> {new Date().toLocaleDateString()}
+                    </p>
                   </>
                 ) :
                   <p>No items in this sale</p>
                 }
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Print Receipt</button>
+                <button type="button" class="btn btn-primary" onClick={handlePrint}>Print Receipt</button>
               </div>
             </div>
           </div>

@@ -8,6 +8,7 @@ function Register() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     password: ""
   });
@@ -55,6 +56,7 @@ function Register() {
         <form className="p-3 border rounded shadow-sm w-50 mx-auto" onSubmit={handleSubmit}>
           {error && <p className="text-danger">{error}</p>}
           <input type="text" name="name" className="form-control mb-3" placeholder="Name" value={formData.name} onChange={handleChange} required></input>
+          <input type="text" name="phone" className="form-control mb-3" placeholder="Enter Phone Number" value={formData.phone} onChange={handleChange} required></input>
           <input type="email" name="email" className="form-control mb-3" placeholder="Enter Email" value={formData.email} onChange={handleChange} required></input>
           <input type="password" name="password" className="form-control mb-3" placeholder="Enter Password" value={formData.password} onChange={handleChange} required></input>
           <button type="submit" className="btn btn-outline-primary w-100" disabled={loading}>{loading ? "Register..." : "Register"}</button>
