@@ -1,67 +1,63 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Topnav from "../components/Topnav";
-import { useState } from "react";
+import React, { useState } from "react";
 
-
-function ForgotPassword() {
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
 
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
+
     try {
       const res = await fetch("http://127.0.0.1:5000/auth/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(
+          contact.includes("@") ? { email: contact } : { phone: contact }
+        ) // <-- use state here
       });
 
       const data = await res.json();
-      if (!res.ok) {
-        alert(data.error || "Something went wrong");
-        setLoading(false);
-        return;
+
+      if (res.status === 404) {
+        setMessage("User not found");
+      } else if (!res.ok) {
+        setMessage(data.error || "Something went wrong");
+      } else {
+        localStorage.setItem("reset_user_id", data.user_id);
+        setMessage(data.message);
       }
-      localStorage.setItem("user_id", data.user_id);
-      window.location.href = "/verify-code";
+
     } catch (err) {
-      alert("Server not reachable");
+      setMessage("Something went wrong. Try again");
     } finally {
       setLoading(false);
     }
   };
 
+
+
   return (
     <>
-      <Topnav />
       <Navbar />
       <form onSubmit={submit} className="container main-content" style={{ maxWidth: "400px" }}>
         <h5 className="text-center mt-5">Forgot Password</h5>
         <div className="mb-3">
-          <label className="form-label fw-semibold">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
+          <label className="form-label fw-semibold">Email</label>
+          <input type="email" placeholder="Enter your email..." />
         </div>
-
-        <button
-          type="submit"
-          className="btn btn-primary w-100 py-2 fw-semibold"
-          disabled={loading}
-        >
-          {loading ? "Sending..." : "Send Code"}
+        <button type="submit" className="btn btn-primary w-100 py-2 fw-semibold" disabled={loading}>
+          {loading ? "Sending..." : "Send OTP"}
         </button>
-
+        {message && <p className="mt-3 text-center">{message}</p>}
       </form>
+      <Footer />
     </>
   );
 }
-
-export default ForgotPassword;

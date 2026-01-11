@@ -28,21 +28,26 @@ function Register() {
       const res = await fetch("http://127.0.0.1:5000/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim()
+        }),
       }
       );
       const data = await res.json();
-      if (!res.ok) {
+      if (res.status === 409) {
+        setError(data.error);
+      } else if (!res.ok) {
         setError(data.error || "Registration failed");
-        setLoading(false);
-        return;
       }
       if (data.token) localStorage.setItem("token", data.token);
       navigate("/login");
     } catch (err) {
       setError("Something went wrong. Try again");
     } finally {
-      setError(false);
+      setLoading(false);
     }
   };
 

@@ -16,6 +16,8 @@ import ForgotPassword from './pages/ForgotPassword';
 import VerifyCode from './pages/VerifyCode';
 import ResetPassword from './pages/ResetPassword';
 
+import Collection from './pages/Collection';
+
 
 function App() {
   return (
@@ -30,13 +32,14 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path='/home' element={<ProtectedRoute><Index /></ProtectedRoute>} />
-        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} /> 
+        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
         {/* <Route path='/reset' element={<ForgotPassword />} /> */}
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
         <Route path="/purchases" element={<ProtectedRoute><Purchases /></ProtectedRoute>} />
         <Route path="/sales" element={<ProtectedRoute><Sales /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/collection" element={<ProtectedRoute><Collection /></ProtectedRoute>} />
       </Routes>
     </Router>
   )

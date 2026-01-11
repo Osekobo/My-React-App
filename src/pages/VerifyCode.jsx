@@ -1,53 +1,43 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-function VerifyCode() {
+export default function VerifyCode({ userId }) {
   const [otp, setOtp] = useState("");
-  const userId = localStorage.getItem("user_id");
+  const [message, setMessage] = useState("");
 
-  const submit = async () => {
-    if (!otp) {
-      alert("Please enter the OTP");
-      return;
-    }
-
+  const submit = async (e) => {
+    e.preventDefault();
     try {
-      const res = await fetch(`http://127.0.0.1:5000/auth/verify-code/${userId}`, {
+      const res = await fetch(`/auth/verify-code/${userId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ otp })
+        body: JSON.stringify({ otp }),
       });
-
       const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.error || "Verification failed");
-        return;
-      }
-
-      // Success → go to reset password page
-      window.location.href = "/reset-password";
+      setMessage(data.message || data.error);
     } catch (err) {
-      alert("Server not reachable");
+      setMessage("Something went wrong");
     }
   };
 
-
   return (
-    <>
-      <div style={{ maxWidth: "400px", margin: "50px auto", textAlign: "center" }}>
-        <h5>Enter OTP</h5>
+    <form onSubmit={submit} className="container main-content" style={{ maxWidth: "400px" }}>
+      <h5 className="text-center mt-5">Verify Code</h5>
+      <div className="mb-3">
+        <label className="form-label fw-semibold">Enter OTP</label>
         <input
+          type="text"
+          className="form-control"
           value={otp}
-          onChange={e => setOtp(e.target.value)}
-          placeholder="Enter code"
-          style={{ padding: "8px", width: "100%", marginBottom: "10px" }}
+          onChange={(e) => setOtp(e.target.value)}
+          required
         />
-        <button onClick={submit} style={{ padding: "10px 20px" }}>
-          Verify
-        </button>
       </div>
-    </>
+      <button type="submit" className="btn btn-primary w-100 py-2 fw-semibold">
+        Verify
+      </button>
+      {message && <p className="mt-3 text-center">{message}</p>}
+    </form>
   );
 }
 
-export default VerifyCode;
+

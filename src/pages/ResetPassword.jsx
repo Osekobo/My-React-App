@@ -1,59 +1,41 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-function ResetPassword() {
+export default function ResetPassword({ userId }) {
   const [password, setPassword] = useState("");
-  const userId = localStorage.getItem("user_id");
+  const [message, setMessage] = useState("");
 
-  const submit = async () => {
-    if (!password) {
-      alert("Please enter a new password");
-      return;
-    }
-
-    if (!userId) {
-      alert("User ID not found. Go back to forgot password flow.");
-      return;
-    }
-
+  const submit = async (e) => {
+    e.preventDefault();
     try {
-      const res = await fetch(`http://127.0.0.1:5000/auth/reset-password/${userId}`, {
+      const res = await fetch(`/auth/reset-password/${userId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password })
+        body: JSON.stringify({ password }),
       });
-
       const data = await res.json();
-
-      if (!res.ok) {
-        alert(data.error || "Password reset failed");
-        return;
-      }
-
-      alert(data.message || "Password updated successfully");
-      // optional: redirect to login page
-      window.location.href = "/login";
+      setMessage(data.message || data.error);
     } catch (err) {
-      alert("Server not reachable");
+      setMessage("Something went wrong");
     }
   };
 
   return (
-    <>
-      <div style={{ maxWidth: "400px", margin: "50px auto", textAlign: "center" }}>
-        <h5>Reset Password</h5>
+    <form onSubmit={submit} className="container main-content" style={{ maxWidth: "400px" }}>
+      <h5 className="text-center mt-5">Reset Password</h5>
+      <div className="mb-3">
+        <label className="form-label fw-semibold">New Password</label>
         <input
           type="password"
+          className="form-control"
           value={password}
-          onChange={e => setPassword(e.target.value)}
-          placeholder="Enter new password"
-          style={{ padding: "8px", width: "100%", marginBottom: "10px" }}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button onClick={submit} style={{ padding: "10px 20px" }}>
-          Reset
-        </button>
       </div>
-    </>
+      <button type="submit" className="btn btn-primary w-100 py-2 fw-semibold">
+        Reset
+      </button>
+      {message && <p className="mt-3 text-center">{message}</p>}
+    </form>
   );
 }
-
-export default ResetPassword;
