@@ -1,19 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function VerifyCode({ userId }) {
+export default function VerifyCode() {
   const [otp, setOtp] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("reset_user_id"); // get user_id
 
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/auth/verify-code/${userId}`, {
+      const res = await fetch(`http://127.0.0.1:5000/auth/verify-code/${userId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otp }),
       });
       const data = await res.json();
       setMessage(data.message || data.error);
+      if (res.ok) {
+        // OTP correct → go to reset password page
+        navigate("/reset-password");
+      }
     } catch (err) {
       setMessage("Something went wrong");
     }

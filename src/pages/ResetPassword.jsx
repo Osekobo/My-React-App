@@ -1,19 +1,29 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ResetPassword({ userId }) {
+export default function ResetPassword() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("reset_user_id");
 
   const submit = async (e) => {
     e.preventDefault();
+    if (!userId) {
+      setMessage("User not identified. Please try again.");
+      return;
+    }
     try {
-      const res = await fetch(`/auth/reset-password/${userId}`, {
+      const res = await fetch(`http://127.0.0.1:5000/auth/reset-password/${userId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
       const data = await res.json();
       setMessage(data.message || data.error);
+      if (res.ok) {
+        navigate("/login");
+      }
     } catch (err) {
       setMessage("Something went wrong");
     }
